@@ -1,0 +1,123 @@
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+import javax.swing.event.*;
+import java.util.Hashtable;
+import java.awt.font.TextAttribute;
+
+/**
+  *
+  * Beschreibung
+  *
+  * @version 1.0 vom 06.03.2019
+  * @author
+  */
+
+public class lelelele extends JFrame {
+  // Anfang Attribute
+  private CardLayout cards = new CardLayout();
+  private JPanel jPanel1 = new JPanel(null, true);
+    private Button button1 = new Button();
+  private JPanel jPanel2 = new JPanel(null, true);
+  private JPanel jPanel3 = new JPanel(null, true);
+  private JButton jButton1 = new JButton();
+  private JSpinner jSpinner1 = new JSpinner();
+    private SpinnerNumberModel jSpinner1Model = new SpinnerNumberModel(0, -90, 90, 1);
+  private JLabel jLabel1 = new JLabel();
+  private TextField jNumberField1 = new TextField();
+  private JTextArea jTextArea1 = new JTextArea("");
+    private JScrollPane jTextArea1ScrollPane = new JScrollPane(jTextArea1);
+  private JScrollPane jScrollPane1 = new JScrollPane();
+  private JScrollPane jScrollPane2 = new JScrollPane();
+  // Ende Attribute
+
+  public lelelele(String title) {
+    // Frame-Initialisierung
+    super(title);
+    setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
+    int frameWidth = 436; 
+    int frameHeight = 311;
+    setSize(frameWidth, frameHeight);
+    Dimension d = Toolkit.getDefaultToolkit().getScreenSize();
+    int x = (d.width - getSize().width) / 2;
+    int y = (d.height - getSize().height) / 2;
+    setLocation(x, y);
+    setResizable(false);
+    Container cp = getContentPane();
+    cp.setLayout(null);
+    // Anfang Komponenten
+
+    jPanel1.setBounds(32, 24, 121, 121);
+    jPanel1.setBackground(new Color(0xFFC800));
+    jPanel1.setOpaque(true);
+    cp.add(jPanel1);
+    jPanel2.setBounds(208, 64, 41, 81);
+    jPanel2.setBackground(Color.YELLOW);
+    cp.add(jPanel2);
+    jPanel3.setBounds(48, 192, 105, 57);
+    jPanel3.setBackground(Color.CYAN);
+    cp.add(jPanel3);
+    
+    jPanel1.setLayout(this.cards);
+    jPanel1.add(jPanel2, "seite2");
+    this.cards.show(jPanel1, "seite2");
+    
+    jButton1.setBounds(208, 176, 57, 65);
+    jButton1.setText("jButton1");
+    jButton1.setMargin(new Insets(2, 2, 2, 2));
+    jButton1.addActionListener(this::jButton1_ActionPerformed);
+    cp.add(jButton1);
+    button1.setBounds(24, 32, 49, 41);
+    button1.setLabel("button1");
+    button1.addActionListener(this::button1_ActionPerformed);
+    jPanel1.add(button1);
+    cp.setBackground(new Color(0xC0C0C0));
+    
+    jSpinner1.setBounds(40, 160, 73, 17);
+    jSpinner1.setValue(0);
+    jSpinner1.setModel(jSpinner1Model);
+    cp.add(jSpinner1);
+
+    jLabel1.setBounds(176, 16, 81, 23);
+    jLabel1.setText("text");
+    jLabel1.setForeground(Color.WHITE);
+    jLabel1.setHorizontalAlignment(SwingConstants.CENTER);
+    Hashtable<TextAttribute, Object> jLabel1_map = new Hashtable<TextAttribute, Object>();
+    jLabel1_map.put(TextAttribute.FAMILY, "Dialog");
+    jLabel1_map.put(TextAttribute.SIZE, 16);
+    jLabel1_map.put(TextAttribute.UNDERLINE, TextAttribute.UNDERLINE_ON);
+    jLabel1.setFont(new Font(jLabel1_map));
+    cp.add(jLabel1);
+    
+    jNumberField1.setBounds(136, 160, 57, 17);
+    jNumberField1.setText("");
+    cp.add(jNumberField1);
+    jTextArea1ScrollPane.setBounds(0, 192, 41, 17);
+    cp.add(jTextArea1ScrollPane);
+    jScrollPane1.setBounds(296, 272, 100, 100);
+    cp.add(jScrollPane1);
+    jScrollPane2.setBounds(288, 104, 113, 81);
+    // Ende Komponenten
+
+    setVisible(true);
+  } // end of public lelelele
+
+  // Anfang Methoden
+  public void jButton1_ActionPerformed(ActionEvent evt) {
+    // TODO hier Quelltext einfuegen
+    jPanel1.add(jPanel3, "seite3");
+    this.cards.show(jPanel1, "seite3");
+  } // end of jButton1_ActionPerformed
+
+  public void button1_ActionPerformed(ActionEvent evt) {
+    // TODO hier Quelltext einfuegen
+    
+  } // end of button1_ActionPerformed
+
+  // Ende Methoden
+
+  public static void main(String[] args) {
+    new lelelele("lelelele");
+  } // end of main
+
+} // end of class lelelele
